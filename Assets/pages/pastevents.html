@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Events</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+  <header  Class="bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+      <div class="container-fluid">          
+        <a class="navbar-brand" href="#"><img src="../images/amazing_brand.png" alt="Bootstrap"  height="40px" ></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="../../index.html"> Home</a>
+            <a class="nav-link" href="../pages/upcoming.html">Upcoming Events</a>
+            <a   class="nav-link active" aria-current="page" href="#">Past Events</a>
+            <a class="nav-link" href="../pages/contact.html"> Contact</a>
+            <a class="nav-link" href="../pages/stats.html">Stats</a>                  
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <main>
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active ">
+            <img src="../images/optional_banner_3.jpg" class="d-block w-100 img-c " alt="museum">
+            <div class="carousel-caption d-md-block altoh3">
+              <h3 class="h3carrusel">PAST EVENTS</h3>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <img src="../images/optional_banner_4.jpg" class="d-block w-100 img-c" alt="ligth">
+            <div class="carousel-caption d-md-block">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../images/optional_banner_5.jpg" class="d-block w-100 img-c" alt="music">
+            <div class="carousel-caption d-md-block">
+            </div>
+          </div>
+          <div class="carousel-item  ">
+            <img src="../images/optional_banner_1.jpg" class="d-block w-100 img-c" alt="food">
+            <div class="carousel-caption  d-md-block">
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <img src="../images/optional_banner_2.jpg" class="d-block w-100 img-c" alt="cinema">
+            <div class="carousel-caption d-md-block">
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="barra d-flex flex-column flex-lg-row">   
+        <div class="form d-flex flex-wrap" id="form">
+          
+      </div>  
+      <div class="search">
+        <div class="form-check form-check-inline category">
+          <div class="d-flex flex-row h-100" role="search">
+            <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search" id="input-cont">
+            <button class="btn btn-outline-success" type="submit" id="contSearch"><svg xmlns="http://www.w3.org/2000/svg" width="12"
+                height="12" fill="currentColor" class="bi bi-search-heart-fill" viewBox="0 0 16 16">
+                <path
+                  d="M6.5 13a6.474 6.474 0 0 0 3.845-1.258h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.008 1.008 0 0 0-.115-.1A6.471 6.471 0 0 0 13 6.5 6.502 6.502 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13Zm0-8.518c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+              </svg></button>
+            </div>  
+        </div>
+      </div>  
+      </div> 
+      <div class="container">
+        <div class="row" id="contCards">              
+        </div>    
+      </div>       
+    </main>
+    <footer class="d-flex justify-content-between align-items-center bg-black text-white">
+      <div class="mx-4">
+          <a > <img src="../images/facebook.png" alt="Facebook" class="imgfooter rounded"></a>
+          <a > <img src="../images/instagram.png" alt="Instagram" class="imgfooter rounded"></a>
+          <a > <img src="../images/whatsapp.png" alt="whatsapp" class="imgfooter rounded"></a>
+      </div>    
+      <p class="mx-4 mb-0"> COHORT-51 </p>
+    </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script type="module" src="../scripts/pastevents.js"></script> 
+</body>
+</html>

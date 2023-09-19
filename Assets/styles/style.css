@@ -1,0 +1,82 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+header{
+  min-height: 10vh;
+}
+main{
+  background-color: gainsboro;
+  min-height: 80vh;
+
+}
+footer{
+  min-height: 10vh;
+}
+
+
+.img-c{
+  height: 35vh;
+  object-fit:cover;
+  object-position:center;
+}
+.imgcard{
+  height: 30vh;
+  object-fit: cover;
+}
+.h3carrusel{
+  background-color: rgba(0, 0, 0, 0.589);
+}
+.barra{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.form{
+  display:flex;
+  justify-content: center;
+}
+.search{
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  margin-top:0.5rem;
+}
+.card{
+  min-height: 100%;
+}
+
+.imgfooter{
+  height: 5vh;
+  
+}
+table{
+  width: 65% !important;
+}
+
+textarea{
+  resize:none;
+}
+fieldset{
+  display:flex;
+  flex-direction:column;
+  width: 50vw; 
+
+}
+.img-fluid{
+  background-color: gainsboro;
+  min-height: 65vh;
+}
+.input{
+  display:flex;
+  align-items:flex-end;
+}
+
+
+ 
+
+
+
+
