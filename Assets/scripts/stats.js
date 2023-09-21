@@ -4,9 +4,7 @@ const { createApp } = Vue
     data() {
       return {
         datos:[],
-        eventos:[],
-        checkCategoria:[],
-        filtrados:[],       
+        eventos:[],          
         eventosPast:[], 
         eventosUp:[], 
  
@@ -97,32 +95,6 @@ methods:{
         return {categorias:categorias, revenues:revenues , ofAsistencia:ofAsistencia}
     },
     
-    //     let template = `
-    //   <tr>  
-    //     <th colspan="4" class="text-center text-bg-secondary p-0">${titulo} events statistics by category</th>
-    //   </tr>
-    //   <tr class="text-center">
-    //     <th class="p-0 ">Categories</th>
-    //     <th class="p-0 ">Revenues</th>
-    //     <th class="p-0 ">Porcentage of assistance</th>          
-    //   </tr>`
-            
-    //   for (let i = 0; i < categorias.length; i++){
-    //             template += ` 
-            
-    //         <tr class="text-center" >  
-    //          <td class="p-1">${categorias[i]}</td>
-    //          <td class="p-1">$ ${revenues[i].toLocaleString()}</td>
-    //          <td class="p-1">${ofAsistencia[i].toFixed(2)}%</td>
-    //         </tr>              
-                 
-    //             `
-    //         }
-    //         document.getElementById(`${tablas}`).innerHTML = template
-        
-    //     }      
-    
-
 
 },
 beforeUpdate(){

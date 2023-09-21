@@ -31,8 +31,6 @@ const { createApp } = Vue
 },
 methods:{
     
-    
-
 
 },
 beforeUpdate(){
