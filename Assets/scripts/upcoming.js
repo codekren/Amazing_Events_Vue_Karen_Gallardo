@@ -1,31 +1,72 @@
-import { printCard, printCategory, filtrosCruzados } from '../modules/funciones.js'
-const $contCards= document.getElementById('contUp') 
-const $contCategoria=document.getElementById('form')
-const $check= document.getElementById('form')
-const $search= document.getElementById('input-cont')
-const $contSearch=document.getElementById('contSearch')
-const URL_API= 'https://mindhub-xj03.onrender.com/api/amazing'
+const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {   
+        eventos:[],    
+        checkCategoria:[],
+        inputSearchValue:"",
+        filtrados:[],
+        checkedValue:[],
+        filtroCheck:[],
+        filtrarPorSearchCruzado:[],
+        eventosUp:[],        
+      }
+    },
+
+    created(){
+        fetch('https://mindhub-xj03.onrender.com/api/amazing')
+        .then(response=> response.json())
+        .then((data)=> { 
+        this.eventos= data
+        this.eventosUp=this.eventos.events.filter(evento=>evento.date>this.eventos.currentDate)
+        let aux=this.eventosUp.map(evento=>evento.category)
+        this.checkCategoria= this.soloCategorias(aux)
+        this.filtrados=this.eventosUp        
+    }) 
+
+    .catch(err => console.log(err))
+    },
+    methods:{
+       
+        filtrarPorSearch(){
+           
+          return this.eventosUp.filter(evento=>evento.name.toUpperCase().includes(this.inputSearchValue.toUpperCase()))
+          
+         
+        },
+        soloCategorias(array){
+            return Array.from( new Set (array))
+        },
+        filtroPorCheck(){
+            if (this.checkedValue ==0){
+                return this.filtrarPorSearchCruzado
+            }
+           return this.filtrarPorSearchCruzado.filter(evento=> this.checkedValue.includes(evento.category))
+          
+        },
+        filtroCruzado(){
+            
+           this.filtrarPorSearchCruzado= this.filtrarPorSearch()
+           const filtrarporCheckCruzado= this.filtroPorCheck()
+           this.filtrados=filtrarporCheckCruzado
+           
+        }
+               
+
+    },
+    beforeUpdate(){
+        console.log("usted está aquí")
+
+    },
+    computed:{
+
+        
+
+    }
+  }).mount('#app')
 
 
-let checkCategoria
-let up
-let urlDetails="./details.html"
-fetch(URL_API)
-.then(response=> response.json())
-.then (data => {up=data.events.filter(evento=>evento.date>data.currentDate)
-checkCategoria= [...new Set (up.map(evento=>evento.category))]      
-printCard(up,$contCards,urlDetails)
-printCategory(checkCategoria,$contCategoria) 
-})
-
-.catch(err => console.log(err))
-$check.addEventListener('change',()=>{
-    const returnCruzados=filtrosCruzados(up,$search)
-    printCard(returnCruzados, $contCards,urlDetails)
-   })
-$contSearch.addEventListener('click',()=>{
-const returnCruzados=filtrosCruzados(up,$search)
-printCard(returnCruzados,$contCards,urlDetails)})
 
 
 

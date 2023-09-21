@@ -1,33 +1,74 @@
-import { printCard, printCategory, filtrosCruzados } from '../modules/funciones.js'
-const $contCards= document.getElementById('contCards')
-const $contCategory=document.getElementById('form')
-const $check= document.getElementById('form')
-const $search= document.getElementById('input-cont')
-const $contSearch=document.getElementById('contSearch')
-const URL_API= 'https://mindhub-xj03.onrender.com/api/amazing'
+const { createApp } = Vue
 
-let data
-let checkCategoria
-let urlDetails="./Assets/pages/details.html"
+  createApp({
+    data() {
+      return {
+       
+        eventos:[],
+        checkCategoria:[],
+        inputSearchValue:"",
+        filtrados:[],
+        checkedValue:[],
+        filtroCheck:[],
+        filtrarPorSearchCruzado:[],
+        
+      }
+    },
 
-fetch(URL_API)
-.then(response=> response.json())
-.then(({events})=> { 
-    data = events  
-    checkCategoria= [...new Set (data.map(evento=>evento.category))]      
-    printCard(data,$contCards,urlDetails)
-    printCategory(checkCategoria,$contCategory)    
+    created(){
+        fetch('https://mindhub-xj03.onrender.com/api/amazing')
+        .then(response=> response.json())
+        .then((data)=> { 
+        this.eventos= data.events
+        let aux=this.eventos.map(evento=>evento.category)
+        this.checkCategoria= this.soloCategorias(aux)
+        this.filtrados=this.eventos        
+           
+        
     }) 
 
-.catch(err => console.log(err))
+    .catch(err => console.log(err))
+    },
+    methods:{
+        filtrarPorSearch(){
+           
+          return this.eventos.filter(evento=>evento.name.toUpperCase().includes(this.inputSearchValue.toUpperCase()))
+          
+         
+        },
+        soloCategorias(array){
+            return Array.from( new Set (array))
+        },
+        filtroPorCheck(){
+            if (this.checkedValue ==0){
+                return this.filtrarPorSearchCruzado
+            }
+           return this.filtrarPorSearchCruzado.filter(evento=> this.checkedValue.includes(evento.category))
+          
+        },
+        filtroCruzado(){
+            
+           this.filtrarPorSearchCruzado= this.filtrarPorSearch()
+           const filtrarporCheckCruzado= this.filtroPorCheck()
+           this.filtrados=filtrarporCheckCruzado
+           
+        }
+               
 
-$check.addEventListener('change', ()=>{
-    const returnCruzados=filtrosCruzados(data,$search)
-    printCard(returnCruzados, $contCards,urlDetails)
-    })
-$contSearch.addEventListener('click',()=>{
-    const returnCruzados=filtrosCruzados(data,$search)
-   printCard(returnCruzados,$contCards,urlDetails)})
+    },
+    beforeUpdate(){
+        console.log("usted está aquí")
+
+    },
+    computed:{
+
+        
+
+    }
+  }).mount('#app')
+
+
+
 
 
 
